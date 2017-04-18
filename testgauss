@@ -1,0 +1,4 @@
+A = magic(6);
+tic
+[L,U,E] = gauss(A);
+toc

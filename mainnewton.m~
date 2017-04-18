@@ -1,0 +1,68 @@
+clear all;close all; clc
+
+% %Figura 1, cosx
+% 
+% g = @(x) cos(x)
+% %figure(1)
+% % fplot(g, [-4,4]);
+% % hold on 
+% % fplot(@(x) x, [-3,3], 'r')
+% % grid on;
+% 
+% tol = 1e-6;
+% tol2 = 1e-6
+% nmax = 100;
+% 
+% [c, E, cond2, cont] = newton(g, 1, tol, tol2, nmax)
+% 
+% %Figura2, exp -x^2
+% 
+% g2 = @(x) exp(-x^2)
+% %figure(2)
+% % fplot(g2, [-1,1]);
+% % hold on 
+% % fplot(@(x) x, [-1, 1], 'r')
+% % grid on;
+% 
+% tol = 1e-6;
+% tol2 = 1e-6;
+% nmax = 100;
+% 
+% [c, E, cond2, cont] = newton(g2, 1, tol, tol2, nmax)
+% 
+% %Figura3, exp -x
+% 
+% g3 = @(x) exp(-x)
+% %figure(3)
+% % fplot(g3, [-1,2]);
+% % hold on 
+% % fplot(@(x) x, [-1,2], 'r')
+% % grid on;
+% 
+% tol = 1e-6;
+% tol2 = 1e-6;
+% nmax = 100;
+% 
+% [c, E, cond2, cont] = newton(g3, 1, tol, tol2, nmax)
+
+%Figura4, polinomio raro
+
+g4 = @(x) x*(x + 0.8)*(x - 0.8)
+dg4 = @(x) 1 - 3*x.^2+0.64
+
+figure(4)
+subplot(2, 1, 1);
+fplot(g4, [-2,2]);
+grid on;
+subplot(2, 1, 2);
+fplot(df4, [-2, 2];
+grid on
+
+x0 = 0.7
+tol = 1e-6;
+tol2 = 1e-6;
+nmax = 100;
+[c, E, cont] = newton(g4, dg4, x0, tol, tol2, nmax)
+
+
+

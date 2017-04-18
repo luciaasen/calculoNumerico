@@ -1,0 +1,59 @@
+clear all;close all; clc
+%Figura 1, cosx
+figure (1)
+
+g = @(x) cos(x)
+fplot(g, [-4,4]);
+hold on 
+fplot(@(x) x, [-3,3], 'r')
+grid on;
+
+tol = 1e-6;
+nmax = 100;
+
+[c, E, cont] = pfijo(g, 1, tol, nmax)
+
+%Figura2, exp -x^2
+figure (2)
+
+g2 = @(x) exp(-x^2)
+fplot(g2, [-1,1]);
+hold on 
+fplot(@(x) x, [-1, 1], 'r')
+grid on;
+
+tol = 1e-6;
+nmax = 100;
+
+[c, E, cont] = pfijo(g2, 1, tol, nmax)
+
+%Figura3, exp -x
+figure(3)
+
+g3 = @(x) exp(-x)
+fplot(g3, [-1,2]);
+hold on 
+fplot(@(x) x, [-1,2], 'r')
+grid on;
+
+tol = 1e-6;
+nmax = 100;
+
+[c, E, cont] = pfijo(g3, 1, tol, nmax)
+
+%Figura4, exp -x
+figure(4)
+
+g4 = @(x) x*(x + 0.8)*(x - 0.8)
+fplot(g4, [-2,2]);
+hold on 
+fplot(@(x) x, [-2,2], 'r')
+grid on;
+
+tol = 1e-33;
+nmax = 100;
+
+[c, E, cont] = pfijo(g4, 1.5, tol, nmax)
+
+
+

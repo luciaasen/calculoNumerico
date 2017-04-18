@@ -1,0 +1,24 @@
+function [L, U, err] = gaussLU(A)
+[n, m] = size(A);
+if n~= m
+    error('Matriz no cuadrada');
+end
+L = eye(n);
+U = A;
+
+for i = 1:n-1
+   if U(i, i) == 0
+       error('Elemento diagonal de %d se ha anulado', i);
+   end
+   for j = i+1:n
+       L(j , i) = U(j , i)/U(i , i);
+       for k = i:n
+           U(j , k) = U(j , k) - L(j , i)*U(i , k);
+       end
+   end
+end
+
+%Devolvemos la maxima diferencia entre LU y A (el 'error') max(max()) xq 
+% son dos dims: primero el max de cada col y luego el max de ellos :D
+err = max(max(abs(L*U - A)));
+end

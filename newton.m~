@@ -1,0 +1,13 @@
+function [c, E, cont] = newton(g, dg, x0, tol, tol2, nmax)
+cont = 0;
+E = abs(g(x0) - x0);
+cond2 = abs(f(x0));
+while E > tol && cond2 > tol2 && cont < nmax
+    x1= x0 - f(x0)/df(x0);
+    E = abs(x1 - x0);
+    x0 = x1;
+    cond2 = abs(g(x0));
+    cont = cont + 1;
+end
+c = x0;
+end    
